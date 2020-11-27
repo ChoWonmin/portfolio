@@ -33,7 +33,7 @@
         span.mr-2 Latest Release
         v-icon mdi-open-in-new
     v-main
-      HelloWorld
+      router-view
 </template>
 
 <script lang="ts">

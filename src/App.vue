@@ -1,21 +1,20 @@
 <template lang="pug">
   v-app
-    v-app-bar(app color="primary" dark)
+    v-app-bar(color="#163167" dark)
       .d-flex.align-center(
         class="shrink mr-2"
         contain
         transition="scale-transition"
         width="40")
-        .text-h4  wonmin
+        .text-h5 조원민
       v-spacer
       v-btn(
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
         text
       )
         span.mr-2 GITHUB
         v-icon mdi-open-in-new
-    v-main
+    v-app
       router-view
 </template>
 
@@ -35,3 +34,8 @@ export default Vue.extend({
   }),
 });
 </script>
+
+<style lang="sass" scoped>
+*
+  box-sizing: border-box
+</style>

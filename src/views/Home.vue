@@ -1,11 +1,8 @@
 <template lang="pug">
   .home
-    v-row
-      v-col
-        v-card()
-          v-card-title 사이드
-      v-col
-        v-card
+    .side-bar
+    .content
+
 </template>
 
 <script lang="ts">
@@ -20,5 +17,9 @@ export default class Home extends Vue {}
 .home
   width: 100%
   height: 100%
-  background-color: yellow
+  display: flex
+  .side-bar
+    width: 360px
+    height: 100%
+  .content
 </style>

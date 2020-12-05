@@ -1,12 +1,9 @@
 <template lang="pug">
   v-app
     v-app-bar(color="#163167" dark)
-      .d-flex.align-center(
-        class="shrink mr-2"
-        contain
-        transition="scale-transition"
-        width="40")
-        .text-h5 조원민
+      v-tabs(color="#fefefe" v-model="tab")
+        v-tab Profile
+        v-tab Project
       v-spacer
       v-btn(
         target="_blank"
@@ -20,17 +17,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    HelloWorld,
   },
-
   data: () => ({
-    //
+    tab: 0,
   }),
 });
 </script>

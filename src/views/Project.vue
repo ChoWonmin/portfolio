@@ -1,9 +1,6 @@
 <template lang="pug">
   .home
     .side-bar
-      v-tabs(color="#163167" v-model="tab")
-        v-tab Profile
-        v-tab Project
       .side-bar-content
     .content
 
@@ -28,11 +25,9 @@ export default class Home extends Vue {
     width: 360px
     height: calc(100vh -64px)
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
-    overflow-y: scroll
+    overflow-y: auto
     .side-bar-content
       width: 100%
-      height: 1360px
       background-color: red
-
   .content
 </style>

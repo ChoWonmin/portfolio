@@ -7,13 +7,13 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Project',
-    component: Project,
-  },
-  {
-    path: '/profile',
     name: 'Profile',
     component: () => import('../views/Profile.vue'),
+  },
+  {
+    path: '/project',
+    name: 'Project',
+    component: Project,
   },
 ];
 

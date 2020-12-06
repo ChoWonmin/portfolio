@@ -1,7 +1,7 @@
 <template lang="pug">
   v-app
     v-app-bar(color="#163167" dark)
-      v-tabs(color="#fefefe" v-model="tab")
+      v-tabs(color="#fefefe" v-model="tab" @change="navigate")
         v-tab Profile
         v-tab Project
       v-spacer
@@ -11,7 +11,7 @@
       )
         span.mr-2 GITHUB
         v-icon mdi-open-in-new
-    v-app
+    #app
       router-view
 </template>
 
@@ -25,11 +25,18 @@ export default Vue.extend({
   },
   data: () => ({
     tab: 0,
+    pages: ['Profile', 'Project'],
   }),
+  methods: {
+    navigate() {
+      this.$router.push({ name: this.pages[this.tab] });
+    },
+  },
 });
 </script>
 
 <style lang="sass" scoped>
-*
-  box-sizing: border-box
+#app
+  width: 100%
+  height: calc(100vh - 64px)
 </style>

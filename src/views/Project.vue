@@ -1,7 +1,7 @@
 <template lang="pug">
-  .home
+  .project
     .side-bar
-      .side-bar-content
+      .side-bar-content project
     .content
 
 </template>
@@ -17,13 +17,13 @@ export default class Home extends Vue {
 </script>
 
 <style lang="sass" scoped>
-.home
+.project
   width: 100%
-  height: 100vh
+  height: 100%
   display: flex
   .side-bar
     width: 360px
-    height: calc(100vh -64px)
+    height: 100%
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
     overflow-y: auto
     .side-bar-content

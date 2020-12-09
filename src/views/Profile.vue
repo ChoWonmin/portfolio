@@ -32,10 +32,17 @@
       v-divider.my-2
       .info-subtitle 기술
       .info-bar-warp
-        .info-bar-col(v-for="(skill, index) in skillList")
+        .info-bar-col(v-for="(skill, index) in skillList" :key="index")
           .info-bar-outer
-            .info-bar-inner
+            .info-bar-inner(:style="{height: `${skill.score}%`}")
           .info-bar-name {{skill.name}}
+      v-divider.my-2
+      .info-subtitle 언어/프레임워크
+      .info-bar-warp
+        .info-bar-col(v-for="(framework, index) in frameworks" :key="index")
+          .info-bar-outer
+            .info-bar-inner(:style="{height: `${framework.score}%`}")
+          .info-bar-name {{framework.name}}
       v-divider.my-2
 </template>
 
@@ -48,6 +55,13 @@ export default {
       { name: '분석', score: 50 },
       { name: '시각화', score: 90 },
       { name: 'ETL', score: 70 },
+    ],
+    frameworks: [
+      { name: 'Spark', score: 70 },
+      { name: 'Hadoop', score: 70 },
+      { name: 'js', score: 95 },
+      { name: 'Java', score: 75 },
+      { name: 'Graphics', score: 60 },
     ],
   }),
 };
@@ -64,12 +78,14 @@ export default {
     box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
     padding: 16px
     color: #163167
+    .info-subtitle
+      font-size: 14px
     .profile-img-warp
       display: flex
       justify-content: center
       .profile-img
-        width: 200px
-        height: 200px
+        width: 160px
+        height: 160px
         background-color: #dfdfdf
         border-radius: 100%
     .info-row
@@ -85,7 +101,7 @@ export default {
       display: flex
       padding: 4px
       width: 100%
-      height: 80px
+      height: 72px
       .info-bar-col
         width: 40px
         height: 100%

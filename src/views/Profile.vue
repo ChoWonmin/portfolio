@@ -30,8 +30,28 @@
         .info-name 2019.07 - 현재
         .info-value ncsoft, Data Center
       v-divider.my-2
-
+      .info-subtitle 기술
+      .info-bar-warp
+        .info-bar-col(v-for="(skill, index) in skillList")
+          .info-bar-outer
+            .info-bar-inner
+          .info-bar-name {{skill.name}}
+      v-divider.my-2
 </template>
+
+<script>
+export default {
+  name: 'profile',
+  data: () => ({
+    skillList: [
+      { name: '개발', score: 90 },
+      { name: '분석', score: 50 },
+      { name: '시각화', score: 90 },
+      { name: 'ETL', score: 70 },
+    ],
+  }),
+};
+</script>
 
 <style lang="sass" scoped>
 .profile
@@ -61,4 +81,31 @@
         font-weight: bold
       .info-value
         flex: 2
+    .info-bar-warp
+      display: flex
+      padding: 4px
+      width: 100%
+      height: 80px
+      .info-bar-col
+        width: 40px
+        height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: center
+        .info-bar-outer
+          width: 14px
+          height: 60px
+          margin: 0 13px
+          background-color: #B7C2D3
+          position: relative
+          .info-bar-inner
+            width: 100%
+            height: 80%
+            background-color: #163167
+            position: absolute
+            bottom: 0
+        .info-bar-name
+          height: 20px
+          font-size: 12px
+          text-align: center
 </style>

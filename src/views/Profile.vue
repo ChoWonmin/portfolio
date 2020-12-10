@@ -44,6 +44,7 @@
             .info-bar-inner(:style="{height: `${framework.score}%`}")
           .info-bar-name {{framework.name}}
       v-divider.my-2
+    .project-list
 </template>
 
 <script>
@@ -68,6 +69,9 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@mixin shadow
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
+
 .profile
   width: 100%
   height: 100%
@@ -75,7 +79,7 @@ export default {
   .basic-info
     width: 320px
     height: 100%
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
+    @include shadow
     padding: 16px
     color: #163167
     .info-subtitle
@@ -124,4 +128,8 @@ export default {
           height: 20px
           font-size: 12px
           text-align: center
+  .project-list
+    width: 320px
+    height: 100%
+    @include shadow
 </style>

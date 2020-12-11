@@ -44,7 +44,10 @@
             .info-bar-inner(:style="{height: `${framework.score}%`}")
           .info-bar-name {{framework.name}}
       v-divider.my-2
-    .project-list
+    .project-list-warpper
+      .project-search
+      v-divider.my-2
+      .project-list
 </template>
 
 <script>
@@ -63,6 +66,9 @@ export default {
       { name: 'js', score: 95 },
       { name: 'Java', score: 75 },
       { name: 'Graphics', score: 60 },
+    ],
+    projectList: [
+
     ],
   }),
 };
@@ -128,7 +134,7 @@ export default {
           height: 20px
           font-size: 12px
           text-align: center
-  .project-list
+  .project-list-warpper
     width: 320px
     height: 100%
     @include shadow

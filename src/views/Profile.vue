@@ -46,6 +46,7 @@
       v-divider.my-2
     .project-list-warpper
       .project-search
+        v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
       v-divider.my-2
       .project-list
 </template>
@@ -138,4 +139,5 @@ export default {
     width: 320px
     height: 100%
     @include shadow
+    padding: 16px
 </style>

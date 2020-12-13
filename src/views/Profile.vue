@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import projectList from './projectList';
+
 export default {
   name: 'profile',
   data: () => ({
@@ -68,9 +70,7 @@ export default {
       { name: 'Java', score: 75 },
       { name: 'Graphics', score: 60 },
     ],
-    projectList: [
-
-    ],
+    projectList,
   }),
 };
 </script>

@@ -49,6 +49,8 @@
         v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
       v-divider.my-2
       .project-list
+        .project-card
+        .project-card
 </template>
 
 <script>
@@ -140,4 +142,9 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
+    .project-card
+      @include shadow
+      width: 100%
+      height: 120px
+      margin-top: 8px
 </style>

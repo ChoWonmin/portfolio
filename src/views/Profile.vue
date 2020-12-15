@@ -51,6 +51,12 @@
       .project-list
         .project-card
         .project-card
+        .project-card
+        .project-card
+        .project-card
+        .project-card
+        .project-card
+        .project-card
 </template>
 
 <script>
@@ -91,6 +97,7 @@ export default {
     @include shadow
     padding: 16px
     color: #163167
+    overflow-y: auto
     .info-subtitle
       font-size: 14px
     .profile-img-warp
@@ -142,9 +149,12 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
-    .project-card
-      @include shadow
-      width: 100%
-      height: 120px
-      margin-top: 8px
+    .project-list
+      height: calc(100% - 80px)
+      overflow-y: auto
+      .project-card
+        @include shadow
+        width: 100%
+        height: 120px
+        margin-top: 8px
 </style>

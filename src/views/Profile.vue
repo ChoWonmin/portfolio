@@ -49,14 +49,7 @@
         v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
       v-divider.my-2
       .project-list
-        .project-card
-        .project-card
-        .project-card
-        .project-card
-        .project-card
-        .project-card
-        .project-card
-        .project-card
+        .project-card(v-for="(project, index) in projectList" :key="index")
 </template>
 
 <script>

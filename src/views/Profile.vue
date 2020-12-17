@@ -1,8 +1,9 @@
 <template lang="pug">
   .profile
     .basic-info
-      .profile-img-warp
-        .profile-img
+      .profile-img-container
+        .profile-img-warp
+          v-img(:src="require('../assets/wonmin.jpeg')").profile-image
       v-divider.my-2
       .info-row
         .info-name 이름
@@ -50,6 +51,13 @@
       v-divider.my-2
       .project-list
         .project-card(v-for="(project, index) in projectList" :key="index")
+          .project-card-header
+            .project-title-warpper
+              .info-title {{project.name}}
+              .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
+            .project-category-warpper
+          v-divider.my-2
+
 </template>
 
 <script>
@@ -80,6 +88,17 @@ export default {
 @mixin shadow
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
 
+*
+  color: #163167
+  font-size: 12px
+
+.info-title
+  font-size: 14px
+  font-weight: bold
+
+.info-subtitle
+  font-size: 14px
+
 .profile
   width: 100%
   height: 100%
@@ -89,18 +108,18 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
-    color: #163167
     overflow-y: auto
-    .info-subtitle
-      font-size: 14px
-    .profile-img-warp
+    .profile-img-container
       display: flex
       justify-content: center
-      .profile-img
-        width: 160px
-        height: 160px
+      .profile-img-warp
+        width: 120px
+        height: 120px
         background-color: #dfdfdf
         border-radius: 100%
+        @include shadow
+        .profile-image
+          border-radius: 100%
     .info-row
       display: flex
       padding: 4px
@@ -145,9 +164,19 @@ export default {
     .project-list
       height: calc(100% - 80px)
       overflow-y: auto
+      padding: 2px
       .project-card
         @include shadow
         width: 100%
         height: 120px
-        margin-top: 8px
+        margin-top: 16px
+        padding: 8px
+        .project-card-header
+          height: 36px
+          display: flex
+          .project-title-warpper
+            flex: 1
+          .project-category-warpper
+            width: 36px
+            background-color: red
 </style>

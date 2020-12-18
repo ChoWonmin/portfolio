@@ -57,6 +57,17 @@
               .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
             .project-category-warpper
           v-divider.my-2
+          .purpose-content
+            .info-bold 목적
+            .purpose-row.pl-1(
+              v-for="(purpose, index) in project.purposes"
+              :key="index") {{`⦁ ${purpose}`}}
+          v-divider.my-2
+          .descript-content
+            .info-bold 설명
+            .descript-row.pl-1(
+              v-for="(descript, index) in project.descripts"
+              :key="index") {{`⦁ ${descript}`}}
 
 </template>
 
@@ -99,12 +110,15 @@ export default {
 .info-subtitle
   font-size: 14px
 
+.info-bold
+  font-weight: bold
+
 .profile
   width: 100%
   height: 100%
   display: flex
   .basic-info
-    width: 320px
+    width: 280px
     height: 100%
     @include shadow
     padding: 16px
@@ -157,7 +171,7 @@ export default {
           font-size: 12px
           text-align: center
   .project-list-warpper
-    width: 320px
+    width: 340px
     height: 100%
     @include shadow
     padding: 16px
@@ -168,7 +182,7 @@ export default {
       .project-card
         @include shadow
         width: 100%
-        height: 120px
+        // height: 120px
         margin-top: 16px
         padding: 8px
         .project-card-header

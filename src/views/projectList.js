@@ -20,8 +20,35 @@ const projectList = [
     category: 'vis',
     period: ['2018.02', '2019.06'],
     purposes: ['월드컵 축구 데이터를 바탕으로 축구 전술 동향을 시각화', '상위권 팀들의 전술 유형,국가별 전술 유형, 특정 국가의 라운드별 전술 변화 파악'],
-    descripts: ['축구 전술을 4가지 유형으로 군집화하여 전술 유형을 간소화', 'Parallel Coordinate을 이용한 다차원 데이터 탐색'],
+    descripts: [
+      '축구 전술을 4가지 유형으로 군집화하여 전술 유형을 간소화',
+      'Parallel Coordinate을 이용한 다차원 데이터 탐색',
+    ],
     url: '',
+  },
+  {
+    name: '자료구조 시각화 오픈소스',
+    category: 'oss',
+    period: ['2019.02', '2019.06'],
+    purposes: ['js 자료구조 및 시각화 라이브러리 오픈소스 활동'],
+    descripts: [
+      'js 자료구조 라이브러리 오픈소스 활동',
+      'npm 모듈 배포',
+      '자료구조 시각화',
+      'Document 페이지',
+      '누적 다운로드 7000 이상',
+    ],
+    url: '',
+  },
+  {
+    name: 'Lantern2019 - PWA',
+    category: 'platform',
+    period: ['2019.03', '2019.06'],
+    purposes: ['여행자와 현지인 추천 프로젝트'],
+    descripts: [
+      '피어슨 상관계수를 이용한 사용자 매칭 프로젝트',
+    ],
+    url: 'https://github.com/ChoWonmin/Lantern2019/blob/master/README.md',
   },
 ];
 

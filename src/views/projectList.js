@@ -51,7 +51,7 @@ const projectList = [
     url: 'https://github.com/ChoWonmin/Lantern2019/blob/master/README.md',
   },
   {
-    name: 'Lantern2019 - PWA',
+    name: 'GPU Honey Gems',
     category: 'platform',
     period: ['2019.03', '2019.06'],
     purposes: ['Web 환경에서 GPU 프로그래밍을 통한 시각화 퍼포먼스 향상'],

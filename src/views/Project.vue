@@ -2,7 +2,6 @@
   .project
     .side-bar
       .side-bar-content project
-    .content
 
 </template>
 

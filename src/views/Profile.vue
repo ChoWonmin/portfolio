@@ -59,15 +59,16 @@
           v-divider.my-2
           .purpose-content
             .info-bold 목적
+            // ⦁
             .purpose-row.pl-1(
               v-for="(purpose, index) in project.purposes"
-              :key="index") {{`⦁ ${purpose}`}}
+              :key="index") {{`- ${purpose}`}}
           v-divider.my-2
-          .descript-content
+          .descript-content(v-if="project.descripts.length > 0")
             .info-bold 설명
             .descript-row.pl-1(
               v-for="(descript, index) in project.descripts"
-              :key="index") {{`⦁ ${descript}`}}
+              :key="index") {{`- ${descript}`}}
 
 </template>
 
@@ -171,7 +172,7 @@ export default {
           font-size: 12px
           text-align: center
   .project-list-warpper
-    width: 340px
+    width: 360px
     height: 100%
     @include shadow
     padding: 16px

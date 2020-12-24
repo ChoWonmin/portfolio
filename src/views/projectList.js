@@ -52,7 +52,7 @@ const projectList = [
   },
   {
     name: 'GPU Honey Gems',
-    category: 'platform',
+    category: 'Graphics',
     period: ['2019.03', '2019.06'],
     purposes: ['Web 환경에서 GPU 프로그래밍을 통한 시각화 퍼포먼스 향상'],
     descripts: [
@@ -60,6 +60,14 @@ const projectList = [
       '물리 계산식을 프로그래밍에 적용',
     ],
     url: 'https://gpu-honey-gems-36663.firebaseapp.com/',
+  },
+  {
+    name: 'Pure Poll',
+    category: 'platform',
+    period: ['2018.08', '2018.12'],
+    purposes: ['블록체인 기술을 이용하여 리서치 결과를 조작 방지하는 플랫폼'],
+    descripts: [],
+    url: 'https://github.com/ChoWonmin/pure-poll-vue',
   },
 ];
 

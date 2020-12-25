@@ -45,9 +45,15 @@
             .info-bar-inner(:style="{height: `${framework.score}%`}")
           .info-bar-name {{framework.name}}
       v-divider.my-2
+
     .project-list-warpper
       .project-search
         v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
+        .pallete-warpper
+          v-btn.mx-2(small fab
+            v-for="(category, index) in categoryMap" :key="index"
+            )
+            v-icon mdi-television-ambient-light
       v-divider.my-2
       .project-list
         .project-card(v-for="(project, index) in projectList" :key="index")
@@ -55,11 +61,13 @@
             .project-title-warpper
               .info-title {{project.name}}
               .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
-            .project-category-warpper
+            v-avatar(color="#163167" size="36")
+              v-icon(color="white") mdi-television-ambient-light
+            //- v-btn(fab small color="#163167")
+            //-   v-icon(color="white") mdi-television-ambient-light
           v-divider.my-2
           .purpose-content
             .info-bold 목적
-            // ⦁
             .purpose-row.pl-1(
               v-for="(purpose, index) in project.purposes"
               :key="index") {{`- ${purpose}`}}
@@ -78,6 +86,23 @@ import projectList from './projectList';
 export default {
   name: 'profile',
   data: () => ({
+    categoryMap: {
+      vis: {
+        name: 'data visualization',
+        color: '#ffb6b9',
+        icon: 'television-ambient-light',
+      },
+      service: {
+        name: 'service',
+        color: '#bbded6',
+        icon: 'television-ambient-light',
+      },
+      graphics: {
+        name: 'graphics',
+        color: '#8ac6d1',
+        icon: 'television-ambient-light',
+      },
+    },
     skillList: [
       { name: '개발', score: 90 },
       { name: '분석', score: 50 },
@@ -191,7 +216,4 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
-          .project-category-warpper
-            width: 36px
-            background-color: red
 </style>

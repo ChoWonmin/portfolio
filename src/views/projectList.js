@@ -42,7 +42,7 @@ const projectList = [
   },
   {
     name: 'Lantern2019 - PWA',
-    category: 'platform',
+    category: 'service',
     period: ['2019.03', '2019.06'],
     purposes: ['여행자와 현지인 추천 프로젝트'],
     descripts: [
@@ -52,7 +52,7 @@ const projectList = [
   },
   {
     name: 'GPU Honey Gems',
-    category: 'Graphics',
+    category: 'graphics',
     period: ['2019.03', '2019.06'],
     purposes: ['Web 환경에서 GPU 프로그래밍을 통한 시각화 퍼포먼스 향상'],
     descripts: [
@@ -63,11 +63,11 @@ const projectList = [
   },
   {
     name: 'Pure Poll',
-    category: 'platform',
+    category: 'service',
     period: ['2018.08', '2018.12'],
     purposes: ['블록체인 기술을 이용하여 리서치 결과를 조작 방지하는 플랫폼'],
     descripts: [],
-    url: 'https://github.com/ChoWonmin/pure-poll-vue',
+    url: 'https://github.com/ChoWonmin/pure-poll-vues',
   },
 ];
 

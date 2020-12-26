@@ -52,8 +52,9 @@
         .pallete-warpper
           v-btn.mx-2(small fab
             v-for="(category, index) in categoryMap" :key="index"
+            :color="category.color"
             )
-            v-icon mdi-television-ambient-light
+            v-icon(color="#163167") {{`mdi-${category.icon}`}}
       v-divider.my-2
       .project-list
         .project-card(v-for="(project, index) in projectList" :key="index")
@@ -90,7 +91,7 @@ export default {
       vis: {
         name: 'data visualization',
         color: '#ffb6b9',
-        icon: 'television-ambient-light',
+        icon: 'chart-line',
       },
       service: {
         name: 'service',
@@ -100,7 +101,12 @@ export default {
       graphics: {
         name: 'graphics',
         color: '#8ac6d1',
-        icon: 'television-ambient-light',
+        icon: 'vector-triangle',
+      },
+      oss: {
+        name: 'open source',
+        color: '#fae3d9',
+        icon: 'open-source-initiative',
       },
     },
     skillList: [

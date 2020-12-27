@@ -50,20 +50,24 @@
       .project-search
         v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
         .pallete-warpper
-          v-btn.mx-2(small fab
-            v-for="(category, index) in categoryMap" :key="index"
-            :color="category.color"
-            )
-            v-icon(color="#163167") {{`mdi-${category.icon}`}}
+          v-btn.mx-2(
+            v-for="(category, categoryKey) in categoryMap" :key="categoryKey"
+            @click="changePallete(categoryKey)"
+          )
+            v-avatar( :color="category.active?category.color:'grey'" size="30")
+              v-icon(color="#163167") {{`mdi-${category.icon}`}}
       v-divider.my-2
       .project-list
-        .project-card(v-for="(project, index) in projectList" :key="index")
+        .project-card(
+          v-for="(project, index) in projectList" :key="index"
+          v-if="categoryMap[project.category].active"
+        )
           .project-card-header
             .project-title-warpper
               .info-title {{project.name}}
               .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
-            v-avatar(color="#163167" size="36")
-              v-icon(color="white") mdi-television-ambient-light
+            v-avatar(:color="categoryMap[project.category].color" size="36")
+              v-icon(color="#163167") {{`mdi-${categoryMap[project.category].icon}`}}
             //- v-btn(fab small color="#163167")
             //-   v-icon(color="white") mdi-television-ambient-light
           v-divider.my-2
@@ -92,21 +96,25 @@ export default {
         name: 'data visualization',
         color: '#ffb6b9',
         icon: 'chart-line',
+        active: true,
       },
       service: {
         name: 'service',
         color: '#bbded6',
         icon: 'television-ambient-light',
+        active: true,
       },
       graphics: {
         name: 'graphics',
         color: '#8ac6d1',
         icon: 'vector-triangle',
+        active: true,
       },
       oss: {
         name: 'open source',
         color: '#fae3d9',
         icon: 'open-source-initiative',
+        active: true,
       },
     },
     skillList: [
@@ -124,6 +132,11 @@ export default {
     ],
     projectList,
   }),
+  methods: {
+    changePallete(categoryKey) {
+      this.categoryMap[categoryKey].active = !this.categoryMap[categoryKey].active;
+    },
+  },
 };
 </script>
 

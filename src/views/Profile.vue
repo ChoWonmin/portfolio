@@ -48,14 +48,14 @@
 
     .project-list-warpper
       .project-search
-        v-text-field(solo placeholder="프로젝트를 검색해보세요." dense)
+        v-text-field(solo placeholder="프로젝트를 검색하세요." dense)
+        .info-bold.mb-2 카테고리를 활성화하세요.
         .pallete-warpper
-          v-btn.mx-2(
-            v-for="(category, categoryKey) in categoryMap" :key="categoryKey"
-            @click="changePallete(categoryKey)"
-          )
-            v-avatar( :color="category.active?category.color:'grey'" size="30")
-              v-icon(color="#163167") {{`mdi-${category.icon}`}}
+          .pallete-ele(v-for="(category, categoryKey) in categoryMap" :key="categoryKey")
+            v-btn(icon @click="changePallete(categoryKey)")
+              v-avatar(:color="category.active?category.color:'grey'" size="30")
+                v-icon(color="#163167") {{`mdi-${category.icon}`}}
+
       v-divider.my-2
       .project-list
         .project-card(
@@ -220,6 +220,11 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
+    .project-search
+      .pallete-warpper
+        display: flex
+        .pallete-ele
+          width: 48px
     .project-list
       height: calc(100% - 80px)
       overflow-y: auto

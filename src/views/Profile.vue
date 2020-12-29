@@ -49,7 +49,7 @@
     .project-list-warpper
       .project-search
         v-text-field(solo placeholder="프로젝트를 검색하세요." dense)
-        .info-bold.mb-2 카테고리를 활성화하세요.
+        .info-bold.pb-2 카테고리를 활성화하세요.
         .pallete-warpper
           .pallete-ele(v-for="(category, categoryKey) in categoryMap" :key="categoryKey")
             v-btn(icon @click="changePallete(categoryKey)")
@@ -144,6 +144,15 @@ export default {
 @mixin shadow
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important
 
+@mixin scrollbar
+  &::-webkit-scrollbar
+    width: 4px
+  &::-webkit-scrollbar-thumb
+    background: #E0E0E0
+    border-radius: 10px
+  &::-webkit-scrollbar-thumb:hover
+    background: #BDBDBD
+
 *
   color: #163167
   font-size: 12px
@@ -166,6 +175,7 @@ export default {
     width: 280px
     height: 100%
     @include shadow
+    @include scrollbar
     padding: 16px
     overflow-y: auto
     .profile-img-container
@@ -226,9 +236,10 @@ export default {
         .pallete-ele
           width: 48px
     .project-list
-      height: calc(100% - 80px)
+      height: calc(100% - 142px)
       overflow-y: auto
       padding: 2px
+      @include scrollbar
       .project-card
         @include shadow
         width: 100%

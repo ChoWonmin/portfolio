@@ -51,7 +51,10 @@
         v-text-field(solo placeholder="프로젝트를 검색하세요." dense)
         .info-bold.pb-2 카테고리를 활성화하세요.
         .pallete-warpper
-          .pallete-ele(v-for="(category, categoryKey) in categoryMap" :key="categoryKey")
+          .pallete-ele(
+            v-for="(category, categoryKey) in categoryMap" :key="categoryKey"
+            :attr-content="category.name"
+          )
             v-btn(icon @click="changePallete(categoryKey)")
               v-avatar(:color="category.active?category.color:'grey'" size="30")
                 v-icon(color="#163167") {{`mdi-${category.icon}`}}
@@ -93,25 +96,25 @@ export default {
   data: () => ({
     categoryMap: {
       vis: {
-        name: 'data visualization',
+        name: 'Visualization',
         color: '#ffb6b9',
         icon: 'chart-line',
         active: true,
       },
       service: {
-        name: 'service',
+        name: 'Service',
         color: '#bbded6',
         icon: 'television-ambient-light',
         active: true,
       },
       graphics: {
-        name: 'graphics',
+        name: 'Graphics',
         color: '#8ac6d1',
         icon: 'vector-triangle',
         active: true,
       },
       oss: {
-        name: 'open source',
+        name: 'Open Source',
         color: '#fae3d9',
         icon: 'open-source-initiative',
         active: true,
@@ -235,6 +238,9 @@ export default {
         display: flex
         .pallete-ele
           width: 48px
+          position: relative
+          :after
+
     .project-list
       height: calc(100% - 142px)
       overflow-y: auto
@@ -251,4 +257,20 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
+</style>
+
+<style scoped>
+.pallete-ele:after {
+  position: absolute;
+  background-color: #fefefe;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important;
+  display: block;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.pallete-ele:hover:after {
+  content: attr(attr-content);
+}
+
 </style>

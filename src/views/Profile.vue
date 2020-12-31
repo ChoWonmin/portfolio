@@ -55,9 +55,12 @@
             v-for="(category, categoryKey) in categoryMap" :key="categoryKey"
             :attr-content="category.name"
           )
-            v-btn(icon @click="changePallete(categoryKey)")
-              v-avatar(:color="category.active?category.color:'grey'" size="30")
-                v-icon(color="#163167") {{`mdi-${category.icon}`}}
+            v-btn(x-small @click="changePallete(categoryKey)"
+              :color="category.active?category.color:'grey'"
+            ).mx-1 {{category.name}}
+            //- v-btn(icon @click="changePallete(categoryKey)")
+            //-   v-avatar(:color="category.active?category.color:'grey'" size="30")
+            //-     v-icon(color="#163167") {{`mdi-${category.icon}`}}
 
       v-divider.my-2
       .project-list
@@ -68,11 +71,12 @@
           .project-card-header
             .project-title-warpper
               .info-title {{project.name}}
-              .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
-            v-avatar(:color="categoryMap[project.category].color" size="36")
-              v-icon(color="#163167") {{`mdi-${categoryMap[project.category].icon}`}}
-            //- v-btn(fab small color="#163167")
-            //-   v-icon(color="white") mdi-television-ambient-light
+              .info-period
+                div {{`${project.period[0]} -  ${project.period[1]}`}}
+                v-spacer
+                v-chip(:color="categoryMap[project.category].color"
+                  label x-small
+                ) {{categoryMap[project.category].name}}
           v-divider.my-2
           .purpose-content
             .info-bold 목적
@@ -229,7 +233,7 @@ export default {
           font-size: 12px
           text-align: center
   .project-list-warpper
-    width: 360px
+    width: 390px
     height: 100%
     @include shadow
     padding: 16px
@@ -237,7 +241,7 @@ export default {
       .pallete-warpper
         display: flex
         .pallete-ele
-          width: 48px
+          // width: 48px
           position: relative
           :after
 
@@ -257,6 +261,8 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
+            .info-period
+              display: flex
 </style>
 
 <style scoped>

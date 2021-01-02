@@ -177,7 +177,7 @@ export default {
   height: 100%
   display: flex
   .basic-info
-    width: 260px
+    width: 280px
     height: 100%
     @include shadow
     @include scrollbar
@@ -238,10 +238,6 @@ export default {
     .project-search
       .pallete-warpper
         display: flex
-        .pallete-ele
-          // width: 48px
-          position: relative
-          :after
 
     .project-list
       height: calc(100% - 142px)

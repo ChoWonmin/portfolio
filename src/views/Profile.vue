@@ -48,7 +48,10 @@
 
     .project-list-warpper
       .project-search
-        v-text-field(solo placeholder="프로젝트를 검색하세요." dense)
+        v-text-field(
+          solo placeholder="프로젝트를 검색하세요." dense
+          v-model="searchWord"
+        )
         .info-bold.pb-2 카테고리를 활성화하세요.
         .pallete-warpper
           .pallete-ele(
@@ -58,23 +61,22 @@
             v-btn(x-small @click="changePallete(categoryKey)"
               :color="category.active?category.color:'grey'"
             ).mx-1 {{category.name}}
-            //- v-btn(icon @click="changePallete(categoryKey)")
-            //-   v-avatar(:color="category.active?category.color:'grey'" size="30")
-            //-     v-icon(color="#163167") {{`mdi-${category.icon}`}}
 
       v-divider.my-2
       .project-list
         .project-card(
-          v-for="(project, index) in projectList" :key="index"
+          v-for="(project, index) in searchProjectByWord(searchWord)"
+          :key="index"
           v-if="categoryMap[project.category].active"
         )
           .project-card-header
             .project-title-warpper
               .info-title {{project.name}}
-              .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
-            v-chip(:color="categoryMap[project.category].color"
-              label small
-            ) {{categoryMap[project.category].name}}
+              .info-period {{`${project.period[0]} - ${project.period[1]}`}}
+            v-btn(:color="categoryMap[project.category].color"
+              :style="{'pointer-events': 'none'}"
+              x-small
+            ) {{categoryMap[project.category].name.toUpperCase()}}
           v-divider.my-2
           .purpose-content
             .info-bold 목적
@@ -96,6 +98,7 @@ import projectList from './projectList';
 export default {
   name: 'profile',
   data: () => ({
+    searchWord: '',
     categoryMap: {
       vis: {
         name: 'Visualization',
@@ -140,6 +143,22 @@ export default {
   methods: {
     changePallete(categoryKey) {
       this.categoryMap[categoryKey].active = !this.categoryMap[categoryKey].active;
+    },
+    searchProjectByWord(word) {
+      return this.projectList.filter((ele) => {
+        if (ele.name.includes(word)) {
+          return true;
+        }
+
+        if (ele.purposes.filter((purpose) => purpose.includes(word)).length > 0) {
+          return true;
+        }
+
+        if (ele.descripts.filter((descript) => descript.includes(word)).length > 0) {
+          return true;
+        }
+        return false;
+      });
     },
   },
 };
@@ -209,7 +228,7 @@ export default {
       width: 100%
       height: 72px
       .info-bar-col
-        width: 40px
+        width: 50px
         height: 100%
         display: flex
         flex-direction: column
@@ -217,7 +236,7 @@ export default {
         .info-bar-outer
           width: 14px
           height: 60px
-          margin: 0 13px
+          margin: 0 18px
           background-color: #B7C2D3
           position: relative
           .info-bar-inner
@@ -231,7 +250,7 @@ export default {
           font-size: 12px
           text-align: center
   .project-list-warpper
-    width: 420px
+    width: 440px
     height: 100%
     @include shadow
     padding: 16px

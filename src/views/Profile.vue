@@ -68,6 +68,7 @@
           v-for="(project, index) in searchProjectByWord(searchWord)"
           :key="index"
           v-if="categoryMap[project.category].active"
+          @click="selectProject(project)"
         )
           .project-card-header
             .project-title-warpper
@@ -90,15 +91,26 @@
               v-for="(descript, index) in project.descripts"
               :key="index") {{`- ${descript}`}}
 
+    .content-show-warpper
+      iframe(
+        frameborder="0"
+        :src="selectedProject.url"
+        v-if="selectedProject != undefined").content-show
+      project-shower(project="thesis-vis" :images="[{type:'img', src:'HCI001.jpeg'}]")
 </template>
 
 <script>
+import ProjectShower from '@/components/ProjectShower';
 import projectList from './projectList';
 
 export default {
   name: 'profile',
+  components: {
+    'project-shower': ProjectShower,
+  },
   data: () => ({
     searchWord: '',
+    selectedProject: undefined,
     categoryMap: {
       vis: {
         name: 'Visualization',
@@ -140,6 +152,9 @@ export default {
     ],
     projectList,
   }),
+  mounted() {
+    //
+  },
   methods: {
     changePallete(categoryKey) {
       this.categoryMap[categoryKey].active = !this.categoryMap[categoryKey].active;
@@ -159,6 +174,9 @@ export default {
         }
         return false;
       });
+    },
+    selectProject(project) {
+      this.selectedProject = project;
     },
   },
 };
@@ -274,4 +292,11 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
+  .content-show-warpper
+    flex: 1
+    .content-show
+      width: 100%
+      height: 100%
+      overflow-y: auto
+      @include scrollbar
 </style>

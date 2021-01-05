@@ -92,11 +92,18 @@
               :key="index") {{`- ${descript}`}}
 
     .content-show-warpper
-      iframe(
+      iframe.content-show(
         frameborder="0"
         :src="selectedProject.url"
-        v-if="selectedProject != undefined").content-show
-      project-shower(project="thesis-vis" :images="[{type:'img', src:'HCI001.jpeg'}]")
+        v-if="selectedProject.url != undefined")
+      .content-show(v-if="selectedProject.github != undefined")
+        .content-show-row(v-for="(row, i) in selectedProject.rows")
+          v-img(
+            :src="require(`../assets/images/${row}`)"
+            max-width="712"
+            min-width="360"
+          )
+          v-divider.my-1
 </template>
 
 <script>
@@ -110,7 +117,7 @@ export default {
   },
   data: () => ({
     searchWord: '',
-    selectedProject: undefined,
+    selectedProject: { url: undefined, github: undefined },
     categoryMap: {
       vis: {
         name: 'Visualization',
@@ -294,9 +301,12 @@ export default {
             flex: 1
   .content-show-warpper
     flex: 1
+    padding: 4px
     .content-show
       width: 100%
       height: 100%
       overflow-y: auto
       @include scrollbar
+      .content-show-row
+        width: 100%
 </style>

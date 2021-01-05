@@ -1,8 +1,8 @@
 <template lang="pug">
   #project-shower
-    .project-shower-row(v-for="(row, i) in rows" :key="i")
+    .project-shower-row(v-for="(row, i) in rows" :key="i") {{`../assets/${project}/${row.src}`}}
       .project-shower-image(v-if="row.type==='img'")
-        v-img(:src="require(`@/assets/${project}/${row.src}`)")
+        v-img(src="assets/thesis-vis/HCI001.jpeg" width="100px")
 </template>
 
 <script lang="ts">
@@ -10,7 +10,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   props: {
-    projcet: {
+    project: {
       type: String,
       required: true,
     },

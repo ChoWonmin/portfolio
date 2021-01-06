@@ -65,6 +65,7 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/vis-world-cup',
+    rows: [],
   },
   {
     name: '자료구조 시각화 오픈소스',
@@ -91,6 +92,7 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/Lantern2019',
+    rows: [],
   },
   {
     name: 'Pure Poll',
@@ -100,6 +102,7 @@ const projectList = [
     descripts: [],
     url: undefined,
     github: 'https://github.com/ChoWonmin/pure-poll-vues',
+    rows: [],
   },
 ];
 

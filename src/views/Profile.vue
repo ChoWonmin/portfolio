@@ -98,12 +98,11 @@
         v-if="selectedProject.url != undefined")
       .content-show(v-if="selectedProject.github != undefined")
         .content-show-row(v-for="(row, i) in selectedProject.rows")
-          v-img(
-            :src="require(`../assets/images/${row}`)"
-            max-width="712"
-            min-width="360"
-          )
-          v-divider.my-1
+          .img-warp
+            v-img(
+              :src="require(`../assets/images/${row}`)"
+              width="100%"
+            )
 </template>
 
 <script>
@@ -220,6 +219,8 @@ export default {
   width: 100%
   height: 100%
   display: flex
+  @media only screen and (max-width: 660px)
+    flex-wrap: wrap
   .basic-info
     width: 280px
     height: 100%
@@ -227,6 +228,8 @@ export default {
     @include scrollbar
     padding: 16px
     overflow-y: auto
+    @media only screen and (max-width: 660px)
+      width: 100%
     .profile-img-container
       display: flex
       justify-content: center
@@ -279,6 +282,8 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
+    @media only screen and (max-width: 660px)
+      width: 100%
     .project-search
       .pallete-warpper
         display: flex
@@ -300,6 +305,7 @@ export default {
           .project-title-warpper
             flex: 1
   .content-show-warpper
+    min-height: 640px
     flex: 1
     padding: 4px
     .content-show
@@ -308,5 +314,19 @@ export default {
       overflow-y: auto
       @include scrollbar
       .content-show-row
-        width: 100%
+        display: flex
+        justify-content: center
+        .img-warp
+          border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+          max-width: 1000px
+          @media only screen and (max-width: 1800px)
+            max-width: 760px
+          @media only screen and (max-width: 1580px)
+            max-width: 700px
+          @media only screen and (max-width: 1440px)
+            max-width: 560px
+          @media only screen and (max-width: 1280px)
+            max-width: 480px
+          @media only screen and (max-width: 660px)
+            max-width: 320px
 </style>

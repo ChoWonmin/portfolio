@@ -19,16 +19,10 @@ const projectList = [
     descripts: ['웹툰의 색조합을 추출하여 대표 색조합 추출', '웹툰 대표 색조합을 감성 지도에 맵핑'],
     url: undefined,
     github: 'https://github.com/ChoWonmin/first',
-    rows: [
-      'first/first001.png',
-      'first/first002.png',
-      'first/first003.png',
-      'first/first004.png',
-      'first/first005.png',
-      'first/first006.png',
-      'first/first007.png',
-      'first/first008.png',
-    ],
+    image: {
+      directory: 'first',
+      len: 8,
+    },
   },
   {
     name: '논문의 피인용 관계를 이용한 논문 계보도 시각화',
@@ -38,7 +32,7 @@ const projectList = [
     descripts: [],
     url: undefined,
     github: 'https://github.com/ChoWonmin/thesis-vis',
-    rows: [
+    image: [
       'thesis-vis/HCI000.png',
       'thesis-vis/HCI001.jpeg',
       'thesis-vis/HCI002.jpeg',
@@ -65,7 +59,7 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/vis-world-cup',
-    rows: [],
+    image: [],
   },
   {
     name: '자료구조 시각화 오픈소스',
@@ -92,7 +86,7 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/Lantern2019',
-    rows: [],
+    image: [],
   },
   {
     name: 'Pure Poll',
@@ -102,7 +96,7 @@ const projectList = [
     descripts: [],
     url: undefined,
     github: 'https://github.com/ChoWonmin/pure-poll-vues',
-    rows: [],
+    image: [],
   },
 ];
 

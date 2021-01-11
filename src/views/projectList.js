@@ -32,21 +32,10 @@ const projectList = [
     descripts: [],
     url: undefined,
     github: 'https://github.com/ChoWonmin/thesis-vis',
-    image: [
-      'thesis-vis/HCI000.png',
-      'thesis-vis/HCI001.jpeg',
-      'thesis-vis/HCI002.jpeg',
-      'thesis-vis/HCI003.jpeg',
-      'thesis-vis/HCI004.jpeg',
-      'thesis-vis/HCI005.jpeg',
-      'thesis-vis/HCI006.jpeg',
-      'thesis-vis/HCI007.jpeg',
-      'thesis-vis/HCI008.jpeg',
-      'thesis-vis/HCI009.jpeg',
-      'thesis-vis/HCI010.jpeg',
-      'thesis-vis/HCI011.jpeg',
-      'thesis-vis/HCI012.jpeg',
-    ],
+    image: {
+      directory: 'HCI',
+      len: 13,
+    },
   },
   {
     name: '월드컵 축구 전술 시각화',
@@ -59,7 +48,10 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/vis-world-cup',
-    image: [],
+    image: {
+      directory: 'worldcup',
+      len: 8,
+    },
   },
   {
     name: '자료구조 시각화 오픈소스',
@@ -86,7 +78,7 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/Lantern2019',
-    image: [],
+    image: {},
   },
   {
     name: 'Pure Poll',
@@ -96,7 +88,7 @@ const projectList = [
     descripts: [],
     url: undefined,
     github: 'https://github.com/ChoWonmin/pure-poll-vues',
-    image: [],
+    image: {},
   },
 ];
 

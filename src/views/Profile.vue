@@ -97,7 +97,8 @@
         :src="selectedProject.url"
         v-if="selectedProject.url != undefined")
       .content-show(v-if="selectedProject.github != undefined")
-        .content-show-row(v-for="(row, i) in selectedProject.rows")
+        .content-show-row(
+          v-for="(row, i) in imagesLinks(selectedProject.image)")
           .img-warp
             v-img(
               :src="require(`../assets/images/${row}`)"
@@ -184,6 +185,22 @@ export default {
     selectProject(project) {
       this.selectedProject = project;
     },
+    imagesLinks: (image) => {
+      console.warn(image);
+      const aa = new Array(image.len).fill(0).map(
+        (ele, i) => {
+          const number00format = (i + 1).toLocaleString(
+            'en-US',
+            { minimumIntegerDigits: 2, useGrouping: false },
+          );
+
+          return `${image.directory}/${image.directory}0${number00format}.png`;
+        },
+
+      );
+      return aa;
+    }
+    ,
   },
 };
 </script>

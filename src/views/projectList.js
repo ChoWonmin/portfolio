@@ -78,7 +78,11 @@ const projectList = [
     ],
     url: undefined,
     github: 'https://github.com/ChoWonmin/Lantern2019',
-    image: {},
+    image: {
+      directory: 'lantern',
+      len: 13,
+      ext: 'jpeg',
+    },
   },
   {
     name: 'Pure Poll',

@@ -186,19 +186,20 @@ export default {
       this.selectedProject = project;
     },
     imagesLinks: (image) => {
-      console.warn(image);
-      const aa = new Array(image.len).fill(0).map(
+      const links = new Array(image.len).fill(0).map(
         (ele, i) => {
           const number00format = (i + 1).toLocaleString(
             'en-US',
             { minimumIntegerDigits: 2, useGrouping: false },
           );
 
-          return `${image.directory}/${image.directory}0${number00format}.png`;
+          const ext = image.ext === undefined ? 'png' : image.ext;
+
+          return `${image.directory}/${image.directory}0${number00format}.${ext}`;
         },
 
       );
-      return aa;
+      return links;
     }
     ,
   },
@@ -335,15 +336,15 @@ export default {
         justify-content: center
         .img-warp
           border-bottom: 1px solid rgba(0, 0, 0, 0.12)
-          max-width: 1000px
+          width: 1000px
           @media only screen and (max-width: 1800px)
-            max-width: 760px
+            width: 760px
           @media only screen and (max-width: 1580px)
-            max-width: 700px
+            width: 700px
           @media only screen and (max-width: 1440px)
-            max-width: 560px
+            width: 560px
           @media only screen and (max-width: 1280px)
-            max-width: 480px
+            width: 480px
           @media only screen and (max-width: 660px)
-            max-width: 320px
+            width: 320px
 </style>

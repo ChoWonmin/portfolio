@@ -68,7 +68,8 @@
           v-for="(project, index) in searchProjectByWord(searchWord)"
           :key="index"
           v-if="categoryMap[project.category].active"
-          @click="selectProject(project)"
+          :class="{active: project.active}"
+          @click="selectProject(project, index)"
         )
           .project-card-header
             .project-title-warpper
@@ -103,6 +104,8 @@
             v-img(
               :src="require(`../assets/images/${row}`)"
               width="100%"
+              contain
+
             )
 </template>
 
@@ -183,7 +186,10 @@ export default {
       });
     },
     selectProject(project) {
+      this.projectList.forEach((ele) => (ele.active = false));
+
       this.selectedProject = project;
+      this.projectList.filter((ele) => ele.name === this.selectedProject.name)[0].active = true;
     },
     imagesLinks: (image) => {
       const links = new Array(image.len).fill(0).map(
@@ -239,6 +245,7 @@ export default {
   display: flex
   @media only screen and (max-width: 660px)
     flex-wrap: wrap
+    width: 100wh
   .basic-info
     width: 280px
     height: 100%
@@ -317,6 +324,12 @@ export default {
         // height: 120px
         margin-top: 16px
         padding: 8px
+        transition: all ease 0.5s
+        cursor: pointer
+        &.active
+          background-color: lighten(#163167, 65%)
+        &:hover
+          background-color: lighten(#163167, 72%)
         .project-card-header
           height: 36px
           display: flex
@@ -325,11 +338,11 @@ export default {
   .content-show-warpper
     min-height: 640px
     flex: 1
-    padding: 4px
     .content-show
       width: 100%
       height: 100%
       overflow-y: auto
+      padding: 4px
       @include scrollbar
       .content-show-row
         display: flex

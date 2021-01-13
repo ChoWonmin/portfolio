@@ -97,7 +97,7 @@
         frameborder="0"
         :src="selectedProject.url"
         v-if="selectedProject.url != undefined")
-      .content-show(v-if="selectedProject.github != undefined")
+      .content-show(v-if="selectedProject.github != undefined" ref="content")
         .content-show-row(
           v-for="(row, i) in imagesLinks(selectedProject.image)")
           .img-warp
@@ -190,6 +190,12 @@ export default {
 
       this.selectedProject = project;
       this.projectList.filter((ele) => ele.name === this.selectedProject.name)[0].active = true;
+
+      this.$nextTick(() => {
+        if (this.$refs.content) {
+          this.$refs.content.scrollTop = 0;
+        }
+      });
     },
     imagesLinks: (image) => {
       const links = new Array(image.len).fill(0).map(

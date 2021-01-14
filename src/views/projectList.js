@@ -58,6 +58,24 @@ const projectList = [
     active: false,
   },
   {
+    name: '회의 내용 요약 및 시각화 프로덕트',
+    category: 'service',
+    period: ['2019.02', '2019.07'],
+    purposes: ['회의 내용을 요약한 형태로 표현하고 주요주제가 기간에 따라 어떻게 변화되는지 트랙킹한다.'],
+    descripts: [
+      '회의 기본 정보를 표현한다. (회의 일정, 참여 시간, 횟수, 기간 내 주요단어)',
+      '회의에서 동시출현 빈도에 따라서 주요단어와 연관단어를 표현한다.',
+      '주요단어가 등장했던 대화를 표현한다.',
+    ],
+    url: undefined,
+    github: 'https://github.com/ChoWonmin/vis-world-cup',
+    image: {
+      directory: 'worldcup',
+      len: 8,
+    },
+    active: false,
+  },
+  {
     name: '자료구조 시각화 오픈소스',
     category: 'oss',
     period: ['2019.02', '2019.06'],

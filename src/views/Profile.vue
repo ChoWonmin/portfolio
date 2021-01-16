@@ -354,6 +354,7 @@ export default {
         display: flex
         justify-content: center
         .img-warp
+          @include shadow
           border-bottom: 1px solid rgba(0, 0, 0, 0.12)
           width: 1000px
           @media only screen and (max-width: 1800px)

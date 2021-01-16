@@ -70,8 +70,8 @@ const projectList = [
     url: undefined,
     github: 'https://github.com/ChoWonmin/vis-world-cup',
     image: {
-      directory: 'worldcup',
-      len: 8,
+      directory: 'summarizenote',
+      len: 4,
     },
     active: false,
   },

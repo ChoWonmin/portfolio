@@ -93,6 +93,9 @@
               :key="index") {{`- ${descript}`}}
 
     .content-show-warpper
+      .content-header
+        v-btn(samll color="#163167")
+          span.white--text github
       iframe.content-show(
         frameborder="0"
         :src="selectedProject.url"
@@ -344,6 +347,12 @@ export default {
   .content-show-warpper
     min-height: 640px
     flex: 1
+    position: relative
+    .content-header
+      position: absolute
+      top: 16px
+      right: 16px
+      z-index: 1
     .content-show
       width: 100%
       height: 100%

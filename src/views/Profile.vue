@@ -95,7 +95,8 @@
     .content-show-warpper
       .content-header
         v-btn(samll color="#163167")
-          span.white--text github
+          span.mr-2.white--text github
+          v-icon.white--text mdi-github
       iframe.content-show(
         frameborder="0"
         :src="selectedProject.url"

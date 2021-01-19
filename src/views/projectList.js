@@ -11,6 +11,7 @@ const projectList = [
     url: 'https://gpu-honey-gems-36663.firebaseapp.com/',
     github: undefined,
     active: false,
+    clickable: true,
   },
   {
     name: '웹툰 색채 기반 감성 군집 시각화',
@@ -25,6 +26,7 @@ const projectList = [
       len: 8,
     },
     active: false,
+    clickable: true,
   },
   {
     name: '논문의 피인용 관계를 이용한 논문 계보도 시각화',
@@ -39,6 +41,7 @@ const projectList = [
       len: 13,
     },
     active: false,
+    clickable: true,
   },
   {
     name: '월드컵 축구 전술 시각화',
@@ -56,6 +59,7 @@ const projectList = [
       len: 8,
     },
     active: false,
+    clickable: true,
   },
   {
     name: '회의 내용 요약 및 시각화 프로덕트',
@@ -74,6 +78,7 @@ const projectList = [
       len: 4,
     },
     active: false,
+    clickable: true,
   },
   {
     name: '자료구조 시각화 오픈소스',
@@ -90,6 +95,7 @@ const projectList = [
     url: 'https://chowonmin.github.io/jagu-doc/',
     github: undefined,
     active: false,
+    clickable: true,
   },
   {
     name: 'Lantern2019 - PWA',
@@ -107,6 +113,7 @@ const projectList = [
       ext: 'jpeg',
     },
     active: false,
+    clickable: true,
   },
   {
     name: 'Pure Poll',
@@ -118,6 +125,7 @@ const projectList = [
     github: 'https://github.com/ChoWonmin/pure-poll-vues',
     image: {},
     active: false,
+    clickable: false,
   },
 ];
 

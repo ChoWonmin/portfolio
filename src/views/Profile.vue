@@ -190,16 +190,18 @@ export default {
       });
     },
     selectProject(project) {
-      this.projectList.forEach((ele) => (ele.active = false));
+      if (project.clickable) {
+        this.projectList.forEach((ele) => (ele.active = false));
 
-      this.selectedProject = project;
-      this.projectList.filter((ele) => ele.name === this.selectedProject.name)[0].active = true;
+        this.selectedProject = project;
+        this.projectList.filter((ele) => ele.name === this.selectedProject.name)[0].active = true;
 
-      this.$nextTick(() => {
-        if (this.$refs.content) {
-          this.$refs.content.scrollTop = 0;
-        }
-      });
+        this.$nextTick(() => {
+          if (this.$refs.content) {
+            this.$refs.content.scrollTop = 0;
+          }
+        });
+      }
     },
     imagesLinks: (image) => {
       const links = new Array(image.len).fill(0).map(

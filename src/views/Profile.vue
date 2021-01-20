@@ -68,7 +68,7 @@
           v-for="(project, index) in searchProjectByWord(searchWord)"
           :key="index"
           v-if="categoryMap[project.category].active"
-          :class="{active: project.active}"
+          :class="{clickable: project.clickable, active: project.active}"
           @click="selectProject(project, index)"
         )
           .project-card-header
@@ -336,11 +336,11 @@ export default {
         // height: 120px
         margin-top: 16px
         padding: 8px
-        transition: all ease 0.5s
-        cursor: pointer
-        &.active
+        &.clickable.active
+          transition: all ease 0.5s
+          cursor: pointer
           background-color: lighten(#163167, 65%)
-        &:hover
+        &.clickable:hover
           background-color: lighten(#163167, 72%)
         .project-card-header
           height: 36px

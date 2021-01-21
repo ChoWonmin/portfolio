@@ -336,9 +336,12 @@ export default {
         // height: 120px
         margin-top: 16px
         padding: 8px
+        background-color: rgba(0, 0, 0, 0.12)
+        &.clickable
+          background-color: #ffffff
+          cursor: pointer
         &.clickable.active
           transition: all ease 0.5s
-          cursor: pointer
           background-color: lighten(#163167, 65%)
         &.clickable:hover
           background-color: lighten(#163167, 72%)

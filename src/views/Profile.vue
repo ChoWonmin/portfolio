@@ -1,116 +1,128 @@
 <template lang="pug">
-  .profile
-    .basic-info
-      .profile-img-container
-        .profile-img-warp
-          v-img(:src="require('../assets/wonmin.jpeg')").profile-image
-      v-divider.my-2
-      .info-row
-        .info-name 이름
-        .info-value 조원민
-      .info-row
-        .info-name 나이(성별)
-        .info-value 28(남)
-      .info-row
-        .info-name 생년월일
-        .info-value 1994.06.03
-      .info-row
-        .info-name 이메일
-        .info-value 0108257@gmail.com
-      .info-row
-        .info-name Github
-        .info-value github.com/ChoWonmin
-      v-divider.my-2
-      .info-subtitle 학력사항
-      .info-row
-        .info-name 2013.03 - 2019.07
-        .info-value 아주대학교 미디어학과
-      v-divider.my-2
-      .info-subtitle 경력사항
-      .info-row
-        .info-name 2019.07 - 현재
-        .info-value ncsoft, Data Center
-      v-divider.my-2
-      .info-subtitle 기술
-      .info-bar-warp
-        .info-bar-col(v-for="(skill, index) in skillList" :key="index")
-          .info-bar-outer
-            .info-bar-inner(:style="{height: `${skill.score}%`}")
-          .info-bar-name {{skill.name}}
-      v-divider.my-2
-      .info-subtitle 언어/프레임워크
-      .info-bar-warp
-        .info-bar-col(v-for="(framework, index) in frameworks" :key="index")
-          .info-bar-outer
-            .info-bar-inner(:style="{height: `${framework.score}%`}")
-          .info-bar-name {{framework.name}}
-      v-divider.my-2
+.profile
+  .basic-info
+    .profile-img-container
+      .profile-img-warp
+        v-img.profile-image(:src="require('../assets/wonmin.jpeg')")
+    v-divider.my-2
+    .info-row
+      .info-name 이름
+      .info-value 조원민
+    .info-row
+      .info-name 나이(성별)
+      .info-value 28(남)
+    .info-row
+      .info-name 생년월일
+      .info-value 1994.06.03
+    .info-row
+      .info-name 이메일
+      .info-value 0108257@gmail.com
+    .info-row
+      .info-name Github
+      .info-value github.com/ChoWonmin
+    v-divider.my-2
+    .info-subtitle 학력사항
+    .info-row
+      .info-name 2013.03 - 2019.07
+      .info-value 아주대학교 미디어학과
+    v-divider.my-2
+    .info-subtitle 경력사항
+    .info-row
+      .info-name 2019.07 - 현재
+      .info-value ncsoft, Data Center
+    v-divider.my-2
+    .info-subtitle 기술
+    .info-bar-warp
+      .info-bar-col(v-for="(skill, index) in skillList", :key="index")
+        .info-bar-outer
+          .info-bar-inner(:style="{ height: `${skill.score}%` }")
+        .info-bar-name {{ skill.name }}
+    v-divider.my-2
+    .info-subtitle 언어/프레임워크
+    .info-bar-warp
+      .info-bar-col(v-for="(framework, index) in frameworks", :key="index")
+        .info-bar-outer
+          .info-bar-inner(:style="{ height: `${framework.score}%` }")
+        .info-bar-name {{ framework.name }}
+    v-divider.my-2
 
-    .project-list-warpper
-      .project-search
-        v-text-field(
-          solo placeholder="프로젝트를 검색하세요." dense
-          v-model="searchWord"
+  .project-list-warpper
+    .project-search
+      v-text-field(
+        solo,
+        placeholder="프로젝트를 검색하세요.",
+        dense,
+        v-model="searchWord"
+      )
+      .info-bold.pb-2 카테고리를 활성화하세요.
+      .pallete-warpper
+        .pallete-ele(
+          v-for="(category, categoryKey) in categoryMap",
+          :key="categoryKey",
+          :attr-content="category.name"
         )
-        .info-bold.pb-2 카테고리를 활성화하세요.
-        .pallete-warpper
-          .pallete-ele(
-            v-for="(category, categoryKey) in categoryMap" :key="categoryKey"
-            :attr-content="category.name"
+          v-btn.mx-1(
+            x-small,
+            @click="changePallete(categoryKey)",
+            :color="category.active ? category.color : 'grey'"
+          ) {{ category.name }}
+
+    v-divider.my-2
+    .project-list
+      .project-card(
+        v-for="(project, index) in searchProjectByWord(searchWord)",
+        :key="index",
+        v-if="categoryMap[project.category].active",
+        :class="{ clickable: project.clickable, active: project.active }",
+        @click="selectProject(project, index)"
+      )
+        .project-card-header
+          .project-title-warpper
+            .info-title {{ project.name }}
+            .info-period {{ `${project.period[0]} - ${project.period[1]}` }}
+          v-btn(
+            :color="categoryMap[project.category].color",
+            :style="{ 'pointer-events': 'none' }",
+            x-small
+          ) {{ categoryMap[project.category].name.toUpperCase() }}
+        v-divider.my-2
+        .purpose-content
+          .info-bold 목적
+          .purpose-row.pl-1(
+            v-for="(purpose, index) in project.purposes",
+            :key="index"
+          ) {{ `- ${purpose}` }}
+        v-divider.my-2
+        .descript-content(v-if="project.descripts.length > 0")
+          .info-bold 설명
+          .descript-row.pl-1(
+            v-for="(descript, index) in project.descripts",
+            :key="index"
+          ) {{ `- ${descript}` }}
+
+  .content-show-warpper
+    .content-header(v-if="selectedProject.github !== undefined")
+      v-btn(
+        samll,
+        color="#163167",
+        @click="openWindow(selectedProject.github)"
+      )
+        span.mr-2.white--text github
+        v-icon.white--text mdi-github
+    iframe.content-show(
+      v-if="selectedProject.url !== undefined",
+      frameborder="0",
+      :src="selectedProject.url"
+    )
+    .content-show(v-if="selectedProject.url === undefined", ref="content")
+      //- .caption {{selectedProject}}
+      .content-show-row(v-for="(row, i) in imagesLinks(selectedProject.image)")
+        .img-warp
+          v-img(
+            :src="require(`../assets/images/${row}`)",
+            width="100%",
+            contain
           )
-            v-btn(x-small @click="changePallete(categoryKey)"
-              :color="category.active?category.color:'grey'"
-            ).mx-1 {{category.name}}
-
-      v-divider.my-2
-      .project-list
-        .project-card(
-          v-for="(project, index) in searchProjectByWord(searchWord)"
-          :key="index"
-          v-if="categoryMap[project.category].active"
-          :class="{clickable: project.clickable, active: project.active}"
-          @click="selectProject(project, index)"
-        )
-          .project-card-header
-            .project-title-warpper
-              .info-title {{project.name}}
-              .info-period {{`${project.period[0]} - ${project.period[1]}`}}
-            v-btn(:color="categoryMap[project.category].color"
-              :style="{'pointer-events': 'none'}"
-              x-small
-            ) {{categoryMap[project.category].name.toUpperCase()}}
-          v-divider.my-2
-          .purpose-content
-            .info-bold 목적
-            .purpose-row.pl-1(
-              v-for="(purpose, index) in project.purposes"
-              :key="index") {{`- ${purpose}`}}
-          v-divider.my-2
-          .descript-content(v-if="project.descripts.length > 0")
-            .info-bold 설명
-            .descript-row.pl-1(
-              v-for="(descript, index) in project.descripts"
-              :key="index") {{`- ${descript}`}}
-
-    .content-show-warpper
-      .content-header
-        v-btn(samll color="#163167")
-          span.mr-2.white--text github
-          v-icon.white--text mdi-github
-      iframe.content-show(
-        frameborder="0"
-        :src="selectedProject.url"
-        v-if="selectedProject.url != undefined")
-      .content-show(v-if="selectedProject.github != undefined" ref="content")
-        .content-show-row(
-          v-for="(row, i) in imagesLinks(selectedProject.image)")
-          .img-warp
-            v-img(
-              :src="require(`../assets/images/${row}`)"
-              width="100%"
-              contain
-
-            )
 </template>
 
 <script>
@@ -124,7 +136,14 @@ export default {
   },
   data: () => ({
     searchWord: '',
-    selectedProject: { url: undefined, github: undefined },
+    selectedProject: {
+      url: undefined,
+      github: undefined,
+      image: {
+        len: 0,
+        directory: '',
+      },
+    },
     categoryMap: {
       vis: {
         name: 'Visualization',
@@ -167,9 +186,12 @@ export default {
     projectList,
   }),
   mounted() {
-    //
+    this.selectedProject = this.projectList[0];
   },
   methods: {
+    openWindow(link) {
+      window.open(link);
+    },
     changePallete(categoryKey) {
       this.categoryMap[categoryKey].active = !this.categoryMap[categoryKey].active;
     },

@@ -18,6 +18,7 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'no-return-assign': 'off',
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'prefer-destructuring': 'off'
   },
 };

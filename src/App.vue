@@ -8,6 +8,7 @@
       v-btn(
         target="_blank"
         text
+        @click="openWindow('https://github.com/ChoWonmin')"
       )
         span.mr-2 GITHUB
         v-icon mdi-open-in-new
@@ -28,6 +29,9 @@ export default Vue.extend({
     pages: ['Profile', 'Project'],
   }),
   methods: {
+    openWindow(link) {
+      window.open(link);
+    },
     navigate() {
       this.$router.push({ name: this.pages[this.tab] });
     },

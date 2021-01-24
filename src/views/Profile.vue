@@ -186,6 +186,7 @@ export default {
     projectList,
   }),
   mounted() {
+    this.projectList[0].active = true;
     this.selectedProject = this.projectList[0];
   },
   methods: {

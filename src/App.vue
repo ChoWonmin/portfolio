@@ -3,7 +3,6 @@
     v-app-bar(color="#163167" dark)
       v-tabs(color="#fefefe" v-model="tab" @change="navigate")
         v-tab Profile
-        v-tab Project
       v-spacer
       v-btn(
         target="_blank"
@@ -29,7 +28,8 @@ export default Vue.extend({
     pages: ['Profile', 'Project'],
   }),
   methods: {
-    openWindow(link) {
+    openWindow(link: string|undefined) {
+      console.log(link);
       window.open(link);
     },
     navigate() {

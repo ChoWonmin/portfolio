@@ -28,5 +28,4 @@ export default class Home extends Vue {
     .side-bar-content
       width: 100%
       background-color: red
-  .content
 </style>

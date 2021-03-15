@@ -1,5 +1,30 @@
 <template lang="pug">
 .profile
+  v-dialog(width="724px" v-show="isSmall" v-model="dialog")
+    .content-show-warpper.dialog
+      .content-header(v-if="selectedProject.github !== undefined")
+        v-btn(
+          samll,
+          color="#163167",
+          @click="openWindow(selectedProject.github)"
+        )
+          span.mr-2.white--text github
+          v-icon.white--text mdi-github
+      iframe.content-show(
+        v-if="selectedProject.url !== undefined",
+        frameborder="0",
+        :src="selectedProject.url"
+      )
+      .content-show(v-if="selectedProject.url === undefined", ref="content")
+        .content-show-row(v-for="(row, i) in imagesLinks(selectedProject.image)")
+          .img-warp
+            v-img(
+              :src="require(`../assets/images/${row.src}`)",
+              :lazy-src="require(`../assets/images-lazy/${row.lazy}`)",
+              width="100%",
+              contain
+            )
+
   .basic-info
     .profile-img-container
       .profile-img-warp
@@ -100,7 +125,7 @@
             :key="index"
           ) {{ `- ${descript}` }}
 
-  .content-show-warpper
+  .content-show-warpper(v-show="!isSmall")
     .content-header(v-if="selectedProject.github !== undefined")
       v-btn(
         samll,
@@ -135,6 +160,8 @@ export default {
     'project-shower': ProjectShower,
   },
   data: () => ({
+    isSmall: false,
+    dialog: false,
     searchWord: '',
     selectedProject: {
       url: undefined,
@@ -185,11 +212,22 @@ export default {
     ],
     projectList,
   }),
+  beforeDestroy() {
+    if (typeof window === 'undefined') return;
+
+    window.removeEventListener('resize', this.onResize, { passive: true });
+  },
   mounted() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize, { passive: true });
+
     this.projectList[0].active = true;
     this.selectedProject = this.projectList[0];
   },
   methods: {
+    onResize() {
+      this.isSmall = window.innerWidth < 1220;
+    },
     openWindow(link) {
       window.open(link);
     },
@@ -217,6 +255,10 @@ export default {
         this.projectList.forEach((ele) => (ele.active = false));
 
         this.selectedProject = project;
+        if (this.isSmall) {
+          this.dialog = true;
+        }
+
         this.projectList.filter((ele) => ele.name === this.selectedProject.name)[0].active = true;
 
         this.$nextTick(() => {
@@ -291,7 +333,7 @@ export default {
     @include scrollbar
     padding: 16px
     overflow-y: auto
-    @media only screen and (max-width: 660px)
+    @media only screen and (max-width: 730px)
       width: 100%
     .profile-img-container
       display: flex
@@ -345,7 +387,9 @@ export default {
     height: 100%
     @include shadow
     padding: 16px
-    @media only screen and (max-width: 660px)
+    @media only screen and (max-width: 1220px)
+      flex: 1
+    @media only screen and (max-width: 730px)
       width: 100%
     .project-search
       .pallete-warpper
@@ -376,38 +420,43 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
-  .content-show-warpper
-    min-height: 640px
-    flex: 1
-    position: relative
-    .content-header
-      position: absolute
-      top: 16px
-      right: 16px
-      z-index: 1
-    .content-show
-      width: 100%
-      height: 100%
-      overflow-y: auto
-      padding: 4px
-      @include scrollbar
-      .content-show-row
-        display: flex
-        justify-content: center
-        .img-warp
-          @include shadow
-          border-bottom: 1px solid rgba(0, 0, 0, 0.12)
-          width: 1000px
-          @media only screen and (max-width: 1800px)
-            width: 760px
-          @media only screen and (max-width: 1580px)
-            width: 700px
-          @media only screen and (max-width: 1440px)
-            width: 560px
-          @media only screen and (max-width: 1280px)
-            width: 480px
-          @media only screen and (max-width: 1000px)
-            width: 380px
-          @media only screen and (max-width: 660px)
-            width: 320px
+
+.content-show-warpper
+  min-height: 660px
+  flex: 1
+  position: relative
+  background-color: #fefefe
+  &.dialog
+    width: 100%
+    height: 648px
+  .content-header
+    position: absolute
+    top: 16px
+    right: 16px
+    z-index: 1
+  .content-show
+    width: 100%
+    height: 100%
+    overflow-y: auto
+    padding: 4px
+    @include scrollbar
+    .content-show-row
+      display: flex
+      justify-content: center
+      .img-warp
+        @include shadow
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+        width: 1000px
+        @media only screen and (max-width: 1800px)
+          width: 760px
+        @media only screen and (max-width: 1580px)
+          width: 700px
+        @media only screen and (max-width: 1440px)
+          width: 560px
+        @media only screen and (max-width: 1280px)
+          width: 480px
+        @media only screen and (max-width: 1220px)
+          width: 720px
+        @media only screen and (max-width: 724px)
+          width: 320px
 </style>

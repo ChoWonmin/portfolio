@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b17346be8d9bf49ff776",
+    "revision": "b23611f9f51fd90c04f4",
     "url": "/portfolio/css/app.28c4f544.css"
   },
   {
-    "revision": "e2f2fc5073b97aeb3c21",
-    "url": "/portfolio/css/chunk-37e7b96b.3a280e2f.css"
+    "revision": "258b2d450a401c750c39",
+    "url": "/portfolio/css/chunk-74b32f5f.24405410.css"
   },
   {
-    "revision": "e435c72e3e3c7e6765c0",
-    "url": "/portfolio/css/chunk-vendors.9c67c1b5.css"
+    "revision": "6932dea276f2d77f49a6",
+    "url": "/portfolio/css/chunk-vendors.459015be.css"
   },
   {
     "revision": "f66fe49796486a5ceec6bc64ff386931",
@@ -400,20 +400,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/portfolio/img/worldcup008.6b60e792.png"
   },
   {
-    "revision": "7e5dd9fc66e957638d28eec461b4bb43",
+    "revision": "b84630749d63e3463604d3f24c0a5b4f",
     "url": "/portfolio/index.html"
   },
   {
-    "revision": "b17346be8d9bf49ff776",
-    "url": "/portfolio/js/app.292b4528.js"
+    "revision": "b23611f9f51fd90c04f4",
+    "url": "/portfolio/js/app.cc4ce516.js"
   },
   {
-    "revision": "e2f2fc5073b97aeb3c21",
-    "url": "/portfolio/js/chunk-37e7b96b.cd0832ca.js"
+    "revision": "258b2d450a401c750c39",
+    "url": "/portfolio/js/chunk-74b32f5f.ead82fa8.js"
   },
   {
-    "revision": "e435c72e3e3c7e6765c0",
-    "url": "/portfolio/js/chunk-vendors.c575d700.js"
+    "revision": "6932dea276f2d77f49a6",
+    "url": "/portfolio/js/chunk-vendors.b2170f33.js"
   },
   {
     "revision": "1770c2524b653c4741436956a1f7f256",

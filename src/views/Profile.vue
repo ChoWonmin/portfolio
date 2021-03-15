@@ -115,7 +115,6 @@
       :src="selectedProject.url"
     )
     .content-show(v-if="selectedProject.url === undefined", ref="content")
-      //- .caption {{selectedProject}}
       .content-show-row(v-for="(row, i) in imagesLinks(selectedProject.image)")
         .img-warp
           v-img(

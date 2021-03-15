@@ -310,7 +310,7 @@ export default {
   font-size: 12px
 
 .info-title
-  font-size: 13px
+  font-size: 12px
   font-weight: bold
 
 .info-subtitle
@@ -323,7 +323,7 @@ export default {
   width: 100%
   height: 100%
   display: flex
-  @media only screen and (max-width: 660px)
+  @media only screen and (max-width: 724px)
     flex-wrap: wrap
     width: 100wh
   .basic-info
@@ -333,8 +333,10 @@ export default {
     @include scrollbar
     padding: 16px
     overflow-y: auto
-    @media only screen and (max-width: 730px)
+    @media only screen and (max-width: 724px)
       width: 100%
+      height: auto
+      overflow-y: visible
     .profile-img-container
       display: flex
       justify-content: center

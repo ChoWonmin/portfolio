@@ -268,7 +268,7 @@ export default {
   font-size: 12px
 
 .info-title
-  font-size: 14px
+  font-size: 13px
   font-weight: bold
 
 .info-subtitle
@@ -407,7 +407,7 @@ export default {
           @media only screen and (max-width: 1280px)
             width: 480px
           @media only screen and (max-width: 1000px)
-            width: 400px
+            width: 380px
           @media only screen and (max-width: 660px)
             width: 320px
 </style>

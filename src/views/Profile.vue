@@ -181,7 +181,7 @@ export default {
       { name: 'Hadoop', score: 70 },
       { name: 'js', score: 95 },
       { name: 'Java', score: 75 },
-      { name: 'Graphics', score: 60 },
+      { name: 'Graphics', score: 65 },
     ],
     projectList,
   }),

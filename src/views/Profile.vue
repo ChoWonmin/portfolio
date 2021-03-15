@@ -406,6 +406,8 @@ export default {
             width: 560px
           @media only screen and (max-width: 1280px)
             width: 480px
+          @media only screen and (max-width: 1000px)
+            width: 400px
           @media only screen and (max-width: 660px)
             width: 320px
 </style>

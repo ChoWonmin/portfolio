@@ -72,7 +72,7 @@ const projectList = [
       '주요단어가 등장했던 대화를 표현한다.',
     ],
     url: undefined,
-    github: 'https://github.com/ChoWonmin/vis-world-cup',
+    github: undefined,
     image: {
       directory: 'summarizenote',
       len: 4,

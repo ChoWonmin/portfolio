@@ -119,7 +119,8 @@
       .content-show-row(v-for="(row, i) in imagesLinks(selectedProject.image)")
         .img-warp
           v-img(
-            :src="require(`../assets/images/${row}`)",
+            :src="require(`../assets/images/${row.src}`)",
+            :lazy-src="require(`../assets/images-lazy/${row.lazy}`)",
             width="100%",
             contain
           )
@@ -236,7 +237,10 @@ export default {
 
           const ext = image.ext === undefined ? 'png' : image.ext;
 
-          return `${image.directory}/${image.directory}0${number00format}.${ext}`;
+          return {
+            src: `${image.directory}/${image.directory}0${number00format}.${ext}`,
+            lazy: `${image.directory}/${image.directory}.0${number00format}.jpeg`,
+          };
         },
 
       );

@@ -393,6 +393,7 @@ export default {
       flex: 1
     @media only screen and (max-width: 730px)
       width: 100%
+      height: 100vh
     .project-search
       .pallete-warpper
         display: flex

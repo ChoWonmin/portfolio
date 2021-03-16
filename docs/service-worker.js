@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/portfolio/precache-manifest.a403464148e4f2d9eff3c9b860ae7ac9.js"
+  "/portfolio/precache-manifest.ce230cc755246351e6de85f2a722a526.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "cho.won.min"});

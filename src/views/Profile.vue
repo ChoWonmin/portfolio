@@ -419,7 +419,6 @@ export default {
         &.clickable:hover
           background-color: lighten(#163167, 72%)
         .project-card-header
-          height: 36px
           display: flex
           .project-title-warpper
             flex: 1

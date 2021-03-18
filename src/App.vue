@@ -6,11 +6,16 @@
       v-spacer
       v-btn(
         target="_blank"
-        text
         @click="openWindow('https://github.com/ChoWonmin')"
       )
-        span.mr-2 GITHUB
-        v-icon mdi-open-in-new
+        span 조직 소개
+        //- v-icon mdi-open-in-new
+      v-btn(
+        target="_blank"
+        @click="openWindow('https://github.com/ChoWonmin')"
+      )
+        span GITHUB
+        //- v-icon mdi-open-in-new
     #app
       router-view
 </template>

@@ -33,12 +33,12 @@
     .info-row
       .info-name 이름
       .info-value 조원민
-    .info-row
-      .info-name 나이(성별)
-      .info-value 28(남)
-    .info-row
-      .info-name 생년월일
-      .info-value 1994.06.03
+    //- .info-row
+    //-   .info-name 나이(성별)
+    //-   .info-value 28(남)
+    //- .info-row
+    //-   .info-name 생년월일
+    //-   .info-value 1994.06.03
     .info-row
       .info-name 이메일
       .info-value 0108257@gmail.com

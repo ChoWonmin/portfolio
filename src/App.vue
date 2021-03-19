@@ -7,12 +7,14 @@
       v-btn(
         target="_blank"
         @click="openWindow('https://github.com/ChoWonmin')"
+        color="#AB93FD"
       )
         span 조직 소개
         //- v-icon mdi-open-in-new
       v-btn(
         target="_blank"
         @click="openWindow('https://github.com/ChoWonmin')"
+        color="#AB93FD"
       )
         span GITHUB
         //- v-icon mdi-open-in-new

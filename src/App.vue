@@ -6,15 +6,15 @@
       v-spacer
       v-btn(
         target="_blank"
-        @click="openWindow('https://github.com/ChoWonmin')"
-        color="#AB93FD"
-      )
+        @click="openWindow('https://danbi-ncsoft.github.io/')"
+        color="#7256d1"
+      ).mr-2
         span 조직 소개
         //- v-icon mdi-open-in-new
       v-btn(
         target="_blank"
         @click="openWindow('https://github.com/ChoWonmin')"
-        color="#AB93FD"
+        color="#7256d1"
       )
         span GITHUB
         //- v-icon mdi-open-in-new

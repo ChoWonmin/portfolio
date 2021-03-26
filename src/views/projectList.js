@@ -1,19 +1,5 @@
 const projectList = [
   {
-    name: 'GPU Honey Gems',
-    category: 'graphics',
-    period: ['2019.03', '2019.06'],
-    purposes: ['Web 환경에서 GPU 프로그래밍을 통한 시각화 퍼포먼스 향상'],
-    descripts: [
-      'webgl 튜토리얼',
-      '물리 계산식을 프로그래밍에 적용',
-    ],
-    url: 'https://gpu-honey-gems-36663.firebaseapp.com/',
-    github: 'https://github.com/ChoWonmin/gpu-honey-gems',
-    active: false,
-    clickable: true,
-  },
-  {
     name: '웹툰 색채 조합을 이용한 정서 탐색 인터페이스 제안',
     category: 'vis',
     period: ['2018.02', '2019.06'],
@@ -25,6 +11,20 @@ const projectList = [
       directory: 'first',
       len: 8,
     },
+    active: false,
+    clickable: true,
+  },
+  {
+    name: 'GPU Honey Gems',
+    category: 'graphics',
+    period: ['2019.03', '2019.06'],
+    purposes: ['Web 환경에서 GPU 프로그래밍을 통한 시각화 퍼포먼스 향상'],
+    descripts: [
+      'webgl 튜토리얼',
+      '물리 계산식을 프로그래밍에 적용',
+    ],
+    url: 'https://gpu-honey-gems-36663.firebaseapp.com/',
+    github: 'https://github.com/ChoWonmin/gpu-honey-gems',
     active: false,
     clickable: true,
   },

@@ -71,12 +71,10 @@
           .project-card-header
             .project-title-warpper
               .info-title {{project.name}}
-              .info-period
-                div {{`${project.period[0]} -  ${project.period[1]}`}}
-                v-spacer
-                v-chip(:color="categoryMap[project.category].color"
-                  label x-small
-                ) {{categoryMap[project.category].name}}
+              .info-period {{`${project.period[0]} -  ${project.period[1]}`}}
+            v-chip(:color="categoryMap[project.category].color"
+              label small
+            ) {{categoryMap[project.category].name}}
           v-divider.my-2
           .purpose-content
             .info-bold 목적
@@ -179,7 +177,7 @@ export default {
   height: 100%
   display: flex
   .basic-info
-    width: 280px
+    width: 260px
     height: 100%
     @include shadow
     @include scrollbar
@@ -233,7 +231,7 @@ export default {
           font-size: 12px
           text-align: center
   .project-list-warpper
-    width: 390px
+    width: 420px
     height: 100%
     @include shadow
     padding: 16px
@@ -261,22 +259,4 @@ export default {
           display: flex
           .project-title-warpper
             flex: 1
-            .info-period
-              display: flex
-</style>
-
-<style scoped>
-.pallete-ele:after {
-  position: absolute;
-  background-color: #fefefe;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12) !important;
-  display: block;
-  padding: 4px;
-  font-weight: bold;
-}
-
-.pallete-ele:hover:after {
-  content: attr(attr-content);
-}
-
 </style>
